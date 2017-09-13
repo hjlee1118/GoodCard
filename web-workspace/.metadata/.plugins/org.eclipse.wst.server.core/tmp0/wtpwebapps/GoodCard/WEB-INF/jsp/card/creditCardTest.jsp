@@ -9,6 +9,8 @@
 
 <!-- Bootstrap core CSS -->
 <c:set var="context" value="${pageContext.request.contextPath }" />
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro"
+	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link
@@ -38,104 +40,138 @@
 	rel="stylesheet">
 <link href="${context}/resources/custom/css/pollForm.css?ver=2"
 	rel="stylesheet">
-	
-<style type="text/css">
 
-body{
+<style type="text/css">
+body {
 	font-family: 'Nanum Gothic', serif;
 }
 
-h4{
+h4 {
 	font-family: 'Nanum Gothic', serif;
 }
 
 .custom-button-design {
-    display: inline-block;
-    padding: 0;
-    font-size: 14px;
-    font-weight: 300;
-    width: 30%;
-    height: auto;
-    line-height: 52px;
-    word-break: keep-all;
-    border: 1px solid #0085a1;
-    cursor: pointer;
-    text-align: center;
-    color: #0085a1;
+	display: inline-block;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 300;
+	width: 30%;
+	height: auto;
+	line-height: 52px;
+	word-break: keep-all;
+	border: 1px solid #0085a1;
+	cursor: pointer;
+	text-align: center;
+	color: #0085a1;
 }
 
-.custom-sort-design{
+.custom-sort-design {
 	color: gray;
 	list-style: none;
 }
 
 /* link -> visit -> hover -> active */
-
 span.custom-button-design:hover {
 	color: white;
 	background: #0085a1;
 }
 
-.first{
-	margin-right : 3%;
-	float:left;
+.first {
+	margin-right: 3%;
+	float: left;
 }
 
-.last{
-	margin : 0;
-	float:left;
+.last {
+	margin: 0;
+	float: left;
 }
 
-i{
+i {
 	margin-right: 5px;
 }
 
-.card-image-area{
-	float:left; 
-	width:250px; 
-	height: 190px; 
-	display: inline-block; 
-	margin-right: 8%; 
-	
+.card-image-area {
+	float: left;
+	width: 200px;
+	height: 126.6px;
+	display: inline-block;
+	margin-right: 8%;
 }
 
-span.card-detail-button{
+span.card-detail-button {
 	border: 1px solid #0085a1;
-    padding: 15px;
-    color: #0085a1;
-    cursor: pointer;
-    margin-bottom: 10%;
-    display: inherit;
+	padding: 15px;
+	color: #0085a1;
+	cursor: pointer;
+	margin-bottom: 10%;
+	display: inherit;
 }
 
+span.card-detail-button:hover {
+	font-weight: bold;
+}
 
-span.card-detail-button:hover{
+span.card-homepage-button {
+	border: 1px solid #008a1; background : #0085a1;
+	padding: 15px;
+	color: white;
+	cursor: pointer;
+	margin-bottom: 10%;
+	display: inherit;
 	background: #0085a1;
+}
+
+span.card-homepage-button:hover {
+	background: #00657A;
+	font-weight: bold;
+}
+
+#footer{
+	margin-top: 100px;
+}
+
+span.paging-disabled{
+	padding: 5px;
+	margin: 0px 3px;
+	cursor: pointer;
+}
+
+span.paging-active{
+	padding: 5px 8px;
+	background: #0085a1;
+	color: white;
+	margin: 0px 3px;
+	cursor: pointer;
+}
+
+span.paging-active:hover{
+	font-weight: bold;
 	color: white;
 }
 
-span.card-homepage-button{
-	border: 1px solid #008a1;
-	background: #0085a1;
-    padding: 15px;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 10%;
-    display: inherit;
+span.paging-disabled:hover{
+	font-weight: bold;
+	color: #0085a1;
 }
 
-span.card-homepage-button:hover{
-	border: 1px solid #0085a1;
-	background: white;
+#paging-area-5 > i {
 	color: #0085a1;
+	cursor: pointer;
+}
+
+#paging-area-5 > i:hover{
+	color: #00657A;
 }
 </style>
 
 <!-- Script File -->
 <script src="${context}/resources/custom/js/jquery-3.2.1.js"></script>
 <script src="${context}/resources/custom/js/jquery-3.2.1.min.js"></script>
-<%-- 
-<script src="${context}/resources/custom/js/poll.js"></script> --%>
+<script type="text/javascript">
+	function goCardHomepage(url) {
+		location.replace(url);
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
@@ -151,7 +187,7 @@ span.card-homepage-button:hover{
 	<div class="poll-main">
 
 		<section class="section-wrapper"
-			style="padding-top: 100px; padding-bottom: 100px; width:100%;">
+			style="width:100%; padding:70px 0px;">
 		<div class="container" style="width: 100%;">
 			<div id="poll_title" class="row"
 				style="margin: 0px; text-align: center;">
@@ -162,66 +198,89 @@ span.card-homepage-button:hover{
 			</div>
 			<div style="height: 50px; clear: both;"></div>
 			<div style="width: 100%; display: block; text-align: center;">
-				<span class="custom-button-design first" onclick=""># 대학생에게 딱 맞는 카드 Pick</span>
-				<span class="custom-button-design first" onclick=""># 20대 직장인 카드 추천 </span>
-				<span class="custom-button-design last" onclick=""># 대중교통 # 버스 # 지하철 </span>
+				<span class="custom-button-design first" onclick=""># 대학생에게 딱
+					맞는 카드 Pick</span> <span class="custom-button-design first" onclick="">#
+					20대 직장인 카드 추천 </span> <span class="custom-button-design last" onclick="">#
+					대중교통 # 버스 # 지하철 </span>
 			</div>
 			<div style="height: 20px; clear: both;"></div>
-			<div style="width: 100%; display: block; text-align: center;">			
-				<span class="custom-button-design first" onclick=""># 카페 # 스타벅스 # 투썸플레이스 </span>
-				<span class="custom-button-design first" onclick=""># 통신요금 # SKT # KT # LGT </span>
-				<span class="custom-button-design last" onclick=""># 영화관 # CGV # 롯데시네마 </span>
+			<div style="width: 100%; display: block; text-align: center;">
+				<span class="custom-button-design first" onclick=""># 카페 #
+					스타벅스 # 투썸플레이스 </span> <span class="custom-button-design first" onclick="">#
+					통신요금 # SKT # KT # LGT </span> <span class="custom-button-design last"
+					onclick=""># 영화관 # CGV # 롯데시네마 </span>
 			</div>
-			
+
 			<div style="height: 50px; clear: both;"></div>
-			
+
 			<hr>
 			<div style="width: 100%;">
-			<ul style="padding:0">
-				<li class="custom-sort-design first"><i class="fa fa-check" aria-hidden="true"></i>굿카드 랭킹순 </li>
-				<li class="custom-sort-design first"><i class="fa fa-check" aria-hidden="true"></i>등록일 순</li>
-				<li class="custom-sort-design last"><i class="fa fa-check" aria-hidden="true"></i>리뷰 많은순</li>
-			</ul>
+				<ul style="padding: 0">
+					<li class="custom-sort-design first"><i class="fa fa-check"
+						aria-hidden="true"></i>굿카드 랭킹순</li>
+					<li class="custom-sort-design first"><i class="fa fa-check"
+						aria-hidden="true"></i>등록일 순</li>
+					<li class="custom-sort-design last"><i class="fa fa-check"
+						aria-hidden="true"></i>리뷰 많은순</li>
+				</ul>
 			</div>
-			<div style="clear:both;"></div>
+			<div style="clear: both;"></div>
 			<hr>
-			
-			<div style="height: 30px; clear: both;"></div>
-			
-			
+
+
+			<c:set var="cnt" value="0" scope="page" />
 			<c:forEach items="${creditCardList}" var="list" varStatus="status"
-				begin="1" end="1">
-			<div style="width:100%">
-				
-				<div style="height: 190px; float: left; padding: 5%;">
-					<h4>1</h4>
-				</div>
-				
-				<div class="card-image-area" style="background: url('${context}/resources/cardImage/${list.imagePath}'); background-size: contain;	background-repeat: no-repeat;">
-					<%-- img src="${context}/resources/cardImage/${list.imagePath}" style="width: 300px; height: 190px;">
+				begin="1" end="10">
+
+				<div style="height: 30px; clear: both;"></div>
+				<div style="width: 100%">
+
+					<c:set var="cnt" value="${ cnt + 1 }" scope="page"></c:set>
+
+					<div style="height: 126.6px; float: left; padding: 5%;">
+						<b
+							style="font-size: 20pt; color: #0085a1; font-family: 'Source Code Pro', monospace;">${cnt}</b>
+					</div>
+
+					<div class="card-image-area"
+						style="background: url('${context}/resources/cardImage/${list.imagePath}'); background-size: contain;	background-repeat: no-repeat;">
+						<%-- img src="${context}/resources/cardImage/${list.imagePath}" style="width: 300px; height: 126.6px;">
 				 --%>
+					</div>
+
+					<div
+						style="display: inline-block; height: 126.6px; padding-top: 1%; float: left;">
+						${list.brand} <span
+							style="color: black; padding: 10px 0px; font-size: 15pt; display: inherit;"><b>${list.cardName}</b></span>
+						<span style="color: #0085a1; display: inherit;">"
+							${list.annotation} "</span>
+					</div>
+
+					<div style="display: inline-block; float: right; margin-right: 8%">
+						<span class="card-detail-button">상세 보기</span> <span
+							class="card-homepage-button"
+							onclick="goCardHomepage('${list.homepageURL}')">카드 신청</span>
+					</div>
 				</div>
-				
-				<div style="display: inline-block; height:190px; padding-top:3%; float: left;">
-					${list.brand}
-					<h4 style="color: black; padding: 10px 0px">${list.cardName}</h4>
-					<span style="color:#0085a1">" ${list.annotation} "</span>
-				</div>
-				
-				<div style="display: inline-block;  padding-top: 3%; float:right; margin-right: 8%">
-					<span class="card-detail-button">상세 보기</span>		
-					<span class="card-homepage-button">카드 신청</span>
-				</div>
-				</div>
-			<div style="clear:both;"></div>
-			<hr>
+				<div style="height: 30px; clear: both;"></div>
+				<hr>
 			</c:forEach>
-		
+			<div style="height: 30px; clear: both;"></div>
+			<div id="paging-area-5" style="float: center; text-align: center;">
+				<i class="fa fa-chevron-left" aria-hidden="true" style="display: none;"></i>
+				<span class="paging-active">1</span>
+				<span class="paging-disabled">2</span>
+				<span class="paging-disabled">3</span>
+				<span class="paging-disabled">4</span>
+				<span class="paging-disabled">5</span>
+				<i class="fa fa-chevron-right" aria-hidden="true"></i>
 			</div>
+		</div>
 		</section>
-
 	</div>
-
+	
+	<div style="height: 30px; clear: both;"></div>
+	
 	<jsp:include page="/WEB-INF/jsp/include/bottom.jsp" />
 
 	<!-- Bootstrap core JavaScript -->
