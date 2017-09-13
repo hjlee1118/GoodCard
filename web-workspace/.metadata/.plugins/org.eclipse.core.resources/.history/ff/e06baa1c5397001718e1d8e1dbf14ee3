@@ -1,0 +1,43 @@
+package goodcard;
+
+import static org.junit.Assert.assertEquals;
+
+import java.net.UnknownHostException;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.springframework.util.Assert;
+
+import com.mongodb.DB;
+import com.mongodb.Mongo;
+import com.mongodb.MongoException;
+
+@RunWith(JUnit4.class)
+public class MongoDBTest {
+
+	@Test
+	public void getConnection() {
+		Mongo m = null;
+		try {
+			m = new Mongo("localhost", 27017);
+		} catch (UnknownHostException e) {
+			System.out.println("UnknownHostException");
+			e.printStackTrace();
+		} catch (MongoException e) {
+			System.out.println("MongoException");
+			e.printStackTrace();
+		}
+
+		Assert.assertEquals("2.0", m.getVersion());
+		System.out.println("=================================");
+		System.out.println(m.getVersion());
+		System.out.println("=================================");
+		DB db = m.getDB("test");
+		Assert.assertEquals("test", db.getName());
+		System.out.println("=================================");
+		System.out.println(db.getName());
+		System.out.println("=================================");
+	}
+
+}

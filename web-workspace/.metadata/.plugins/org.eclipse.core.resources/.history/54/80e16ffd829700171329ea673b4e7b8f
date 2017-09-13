@@ -1,0 +1,5 @@
+package kr.co.goodcard.mongo.repositories;
+
+public interface HybridCardRepository2 {
+
+}

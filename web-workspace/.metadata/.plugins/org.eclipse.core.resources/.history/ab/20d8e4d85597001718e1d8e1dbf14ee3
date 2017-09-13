@@ -1,0 +1,25 @@
+package goodcard;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
+
+
+@RunWith(JUnit4.class)
+public class MongoDBTest {
+
+	@Test
+	public void getConnection() {
+		MongoClient m = new MongoClient("13.124.174.15", 27017);
+		DB db = m.getDB("hana");		
+		DBCollection coll = db.getCollection("checkCard");
+		System.out.println(coll.find("brant"));
+	}
+
+}

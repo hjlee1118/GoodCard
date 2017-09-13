@@ -1,0 +1,17 @@
+package kr.co.goodcard.vo;
+
+import java.util.Map;
+
+public class Card {
+	
+	private String brand;
+	private String cardType;
+	private String cardName;
+	private String annotation;
+	private String imagePath;
+	private Map<String, String> annualFee;
+	private Map<String, String> limitBenefit;
+	private Map<String, >
+	
+
+}

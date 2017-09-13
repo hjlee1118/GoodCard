@@ -1,0 +1,26 @@
+package kr.co.goodcard.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+
+import kr.co.goodcard.service.CardService;
+import kr.co.goodcard.vo.Card;
+
+public class CardServiceImpl implements CardService {
+	
+	@Autowired
+	MongoTemplate mongo;
+
+	@Override
+	public List<Card> getCardList() {		
+		return mongo.findAll(Card.class, "creditCard");
+	}
+
+	@Override
+	public Card getCardOne() {
+		return mongo.findOne(Card.class, "creditCard");
+	}
+
+}

@@ -1,0 +1,26 @@
+package kr.co.goodcard.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
+
+@Configuration
+@EnableMongoRepositories(basePackages = { "kr.co.goodcard.dao" })
+public class MongoConfiguration extends AbstractMongoConfiguration {
+	
+	public String getDatabaseName(){
+		return "hana";
+	}
+	
+	public Mongo mongo() throws Exception{
+		return new MongoClient("13.124.174.15", 27017);
+	}
+	
+	public String getMappingBasePackage(){
+		return "kr.co.goodcard.dao";
+	}
+
+}

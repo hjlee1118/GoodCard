@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.goodcard.dao.RecommendDAO">
+	
+	<insert id="insertPoll" parameterType="poll">
+		insert into POLL (no, member_no, amount, age, card_type) values(poll_seq.nextval, #{memberNo}, #{amount}, #{age}, #{cardType})
+	</insert>
+	
+	<insert id="insertTransportation" parameterType="transportation">
+		insert into TRANSPORTATION (no, AMOUNT) values(transportation_seq.nextval, #{transportationAmount})
+	</insert>
+	
+	<insert id="insertCommunication" parameterType="communication">
+		insert into COMMUNICATION (no, AMOUNT, SKT, KT, UPLUS, ETC)
+		values(communication_seq.nextval, #{communicationAmount}, #{communicationSkt}, #{communicationKt}, #{communicationUPlus}, #{communicationEtc})
+	</insert>
+	
+	<insert id="insertGasStation" parameterType="gasStation">
+		insert into GASSTATION (no, AMOUNT) values(gasStation_seq.nextval, #{gasStationAmount})	
+	</insert>
+	
+	<insert id="insertMovie" parameterType="movie">
+		insert into MOVIE (no, AMOUNT) values(movie_seq.nextval, #{movieAmount})
+	
+	</insert>
+	
+	<insert id="insertCafeBakery" parameterType="cafeBakery">
+		insert into CAFEBAKERY (NO, AMOUNT, STARBUCKS, TWOSOMEPLACE, CAFEBENE,
+					ANGELINUS, COFFEBEAN, EDIYA, HOLLYS, BASKINROBBINS, 
+					DUNKINDONUTS, PASCUCCI, TOMNTOMS, SMOOTHIEKING, 
+					PARISBAGUETTE, TOUSLESJOURS, ETC) 
+		values
+		(cafeBakery_seq.nextval,#{cafeBakeryAmount},
+				#{starbucks},#{twosomePlace},#{cafebene},
+				#{angelinus},#{coffebean},#{ediya},#{hollys},
+				#{baskinRobbins},#{dunkinDonuts},#{pascucci},
+				#{tomNToms},#{smoothieKing},#{parisBaguette},
+				#{tousLesJours},#{cafeBakeryEtc})
+	</insert>
+
+	<insert id="insertRestaurant" parameterType="restaurant">
+		insert into RESTAURANT (no, AMOUNT, outback, vips, ashley, 
+		tgif, madforgarlic, ETC) 
+		values
+		(restaurant_seq.nextval, #{restaurantAmount}, #{outback},
+		#{vips}, #{ashley}, #{tgif}, #{madForGarlic}, #{restaurantEtc})
+	</insert>
+
+	<insert id="insertFastFood" parameterType="fastFood">
+		insert into FASTFOOD (no, AMOUNT, MCDONALDS, LOTTERIA, BURGURKING, KFC, MRPIZZA, DOMINOPIZZA, PIZZAHUT, PAPAJOHNS, ETC)
+		values
+		(fastfood_seq.nextval, #{fastFoodAmount}, #{mcDonalds}, #{lotteRia},
+		#{burgurKing}, #{kfc}, #{mrPizza}, #{dominoPizza}, #{pizzaHut},
+		#{papaJohns},#{fastFoodEtc})	
+	</insert>
+
+	<insert id="insertCafeteria" parameterType="cafeteria">
+		insert into CAFETERIA (no, AMOUNT) values(cafeteria_seq.nextval, #{cafeteriaAmount})	
+	</insert>
+
+	<insert id="insertConvenience" parameterType="convenience">
+		insert into CONVENIENCE (no, AMOUNT) values(convenience_seq.nextval, #{convenienceAmount})	
+	</insert>
+
+	<insert id="insertMart" parameterType="mart">		
+		insert into MART (no, AMOUNT) values(mart_seq.nextval, #{martAmount})
+	</insert>
+
+	<insert id="insertSuperMarket" parameterType="superMarket">		
+		insert into SUPERMARKET (no, AMOUNT) values(superMarket_seq.nextval, #{supermarketAmount})
+	</insert>
+
+	<insert id="insertOnLineShopping" parameterType="onLineShopping">		
+		insert into ONLINESHOPPING (no, AMOUNT) values(onLineShopping_seq.nextval, #{onlineShoppingAmount})
+	</insert>
+
+	<insert id="insertBeauty" parameterType="beauty">		
+		insert into BEAUTY (no, AMOUNT) values(beauty_seq.nextval, #{beautyAmount})	
+	</insert>
+
+	<insert id="insertAmusementPark" parameterType="amusementPark">	
+		insert into AMUSEMENTPARK (no, AMOUNT) values(amusementPark_seq.nextval, #{amusementParkAmount})
+	</insert>
+
+	<insert id="insertAcademy" parameterType="academy">		
+		insert into ACADEMY (no, AMOUNT) values(academy_seq.nextval, #{academyAmount})
+	</insert>
+
+	<insert id="insertBookstore" parameterType="bookstore">	
+		insert into BOOKSTORE (no, AMOUNT) values(bookstore_seq.nextval, #{bookstoreAmount})	
+	</insert>
+
+	<insert id="insertMedical" parameterType="medical">
+		insert into MEDICAL (no, AMOUNT) values(medical_seq.nextval, #{medicalAmount})
+	</insert>
+	
+	<select id="selectPollNoByMemberNo" parameterType="int" resultType="int">
+		select max(no)
+		from POLL
+		where member_no = #{memberNo}
+	</select>
+	
+</mapper>

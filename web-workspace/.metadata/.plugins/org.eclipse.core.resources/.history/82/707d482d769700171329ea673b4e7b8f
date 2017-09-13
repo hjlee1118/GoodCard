@@ -1,0 +1,5 @@
+package kr.co.goodcard.vo.mongo;
+
+public class Detail {
+
+}

@@ -1,0 +1,8 @@
+package kr.co.goodcard.mongo.repositories;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CheckCardRepository {
+
+}

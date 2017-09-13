@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.goodcard.dao.RecommendDAO">
+	
+	<insert id="insertPoll" parameterType="poll">
+		insert into poll(no, member_no, amount, age, card_type) values(poll_seq.nextval, #{memberNo}, #{amount}, #{age}, #{cardType})
+	</insert>
+	
+	<insert id="insertTransportation" parameterType="transportation">
+		insert into transportation(no, transportation_amount) values(transportation_seq.nextval, #{transportationAmount})
+	</insert>
+	
+	<insert id="insertCommunication" parameterType="communication">
+		insert into communication(no, communication_amount, communication_skt, communication_kt, communication_uplus, communication_etc)
+		values(communication_seq.nextval, #{communicationAmount}, #{communicationSkt}, #{communicationKt}, #{communicationUPlus}, #{communicationEtc})
+	</insert>
+	
+	<insert id="insertGasStation" parameterType="gasStation">
+		insert into gasStation(no, gasStation_amount) values(gasStation_seq.nextval, #{gasStationAmount})	
+	</insert>
+	
+	<insert id="insertMovie" parameterType="movie">
+		insert into movie(no, movie_amount) values(movie_seq.nextval, #{movieAmount})
+	
+	</insert>
+	
+	<insert id="insertCafeBakery" parameterType="cafeBakery">
+		insert into cafeBakery
+					(NO, AMOUNT, STARBUCKS, TWOSOMEPLACE, CAFEBENE,
+					ANGELINUS, COFFEBEAN, EDIYA, HOLLYS, BASKINROBBINS, 
+					DUNKINDONUTS, PASCUCCI, TOMNTOMS, SMOOTHIEKING, 
+					PARISBAGUETTE, TOUSLESJOURS, ETC) 
+		values
+		(cafeBakery_seq.nextval,#{cafeBakeryAmount},
+				#{starbucks},#{twosomePlace},#{cafebene},
+				#{angelinus},#{coffebean},#{ediya},#{hollys},
+				#{baskinRobbins},#{dunkinDonuts},#{pascucci},
+				#{tomNToms},#{smoothieKing},#{parisBaguette},
+				#{tousLesJours},#{cafeBakeryEtc})
+	</insert>
+
+	<insert id="insertRestaurant" parameterType="restaurant">
+		insert into restaurant 
+		(no, restaurant_amount, outback, vips, ashley, 
+		tgif, madforgarlic, restaurant_etc) 
+		values
+		(restaurant_seq.nextval, #{restaurantAmount}, #{outback},
+		#{vips}, #{ashley}, #{tgif}, #{madForGarlic}, #{restaurantEtc})
+	</insert>
+
+	<insert id="insertFastFood" parameterType="fastFood">
+		insert into fastfood
+		(no, AMOUNT, MCDONALDS, LOTTERIA, BURGURKING,
+			KFC, MRPIZZA, DOMINOPIZZA, PIZZAHUT, PAPAJOHNS, ETC)
+		values
+		(#{fastFoodNo}, #{fastFoodAmount}, #{mcDonalds}, #{lotteRia},
+		#{burgurKing}, #{kfc}, #{mrPizza}, #{dominoPizza}, #{pizzaHut},
+		#{papaJohns},#{fastFoodEtc})	
+	</insert>
+
+	<insert id="insertCafeteria" parameterType="cafeteria">
+		insert into cafeteria(no, cafeteria_amount) values(cafeteria_seq.nextval, #{cafeteriaAmount})	
+	</insert>
+
+	<insert id="insertConvenience" parameterType="convenience">
+		insert into convenience(no, convenience_amount) values(convenience_seq.nextval, #{convenienceAmount})	
+	</insert>
+
+	<insert id="insertMart" parameterType="mart">		
+		insert into transportation(no, mart_amount) values(mart_seq.nextval, #{martAmount})
+	</insert>
+
+	<insert id="insertSuperMarket" parameterType="superMarket">		
+		insert into transportation(no, superMarket_amount) values(superMarket_seq.nextval, #{superMarketAmount})
+	</insert>
+
+	<insert id="insertOnLineShopping" parameterType="onLineShopping">		
+		insert into onLineShopping(no, onLineShopping_amount) values(onLineShopping_seq.nextval, #{onLineShoppingAmount})
+	</insert>
+
+	<insert id="insertBeauty" parameterType="beauty">		
+		insert into beauty(no, beauty_amount) values(beauty_seq.nextval, #{beautyAmount})	
+	</insert>
+
+	<insert id="insertAmusementPark" parameterType="amusementPark">	
+		insert into amusementPark(no, amusementPark_amount) values(amusementPark_seq.nextval, #{amusementParkAmount})
+	</insert>
+
+	<insert id="insertAcademy" parameterType="academy">		
+		insert into academy(no, academy_amount) values(academy_seq.nextval, #{academyAmount})
+	</insert>
+
+	<insert id="insertBookstore" parameterType="bookstore">	
+		insert into bookstore(no, bookstore_amount) values(bookstore_seq.nextval, #{bookstoreAmount})	
+	</insert>
+
+	<insert id="insertMedical" parameterType="medical">
+		insert into medical(no, medical_amount) values(medical_seq.nextval, #{medicalAmount)
+	</insert>
+	
+</mapper>

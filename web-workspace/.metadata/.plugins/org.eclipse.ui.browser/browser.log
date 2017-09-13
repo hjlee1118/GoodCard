@@ -1,0 +1,18 @@
+
+9월 11, 2017 15:55:37.26 NEW SESSION
+9월 11, 2017 15:55:37.26 [9456:9344:0911/155537.266:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 11, 2017 16:06:20.42 [9456:9344:0911/160620.423:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+
+9월 11, 2017 17:33:52.68 NEW SESSION
+9월 11, 2017 17:33:52.68 [13280:2968:0911/173352.686:ERROR:service_manager.cc(142)] Connection InterfaceProviderSpec prevented service: content_browser from binding interface: content::mojom::Child exposed by: nacl_loader
+9월 11, 2017 17:33:52.87 [13280:2968:0911/173352.876:ERROR:pnacl_host.cc(436)] TranslationFinished: TranslationID 28,-290099015 not found.
+9월 11, 2017 22:49:26.92 [13280:2968:0911/224926.926:ERROR:socket_stream.cc(210)] Closing stream with result -100
+9월 12, 2017 09:08:03.95 [13280:11684:0912/090803.949:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:08:16.11 [13280:11684:0912/090816.115:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:08:46.55 [13280:11684:0912/090846.550:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:18:17.26 [13280:11684:0912/091817.268:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:18:47.42 [13280:11684:0912/091847.427:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:28:18.21 [13280:11684:0912/092818.218:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:28:48.58 [13280:11684:0912/092848.580:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:38:19.22 [13280:11684:0912/093819.227:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0
+9월 12, 2017 09:38:43.30 [13280:11684:0912/093843.300:ERROR:audio_manager_base.cc(261)] Invalid audio output parameters received; using fake audio path. Channels: 0, Sample Rate: 0, Bits Per Sample: 0, Frames Per Buffer: 0

@@ -1,0 +1,32 @@
+1505089242215	Delete element
+1505089244710	Delete element
+1505096321339	Copy file
+1505097478247	Delete element
+1505105324316	Move 'loginForm.jsp' to 'webapp'
+1505115651711	Rename resource 'ownerMain.jsp'
+1505116121067	Delete element
+1505116177662	Rename type 'ManagerLoginCheck'
+1505116193117	Rename type 'OwnerLoginCheck'
+1505116363097	Rename compilation unit 'OwnerLoginCheckInterceptor.java'
+1505116625165	Delete element
+1505178982291	Rename type 'MongoDBConfig'
+1505179710681	Move 'GoodCard.sql' to 'sql_file'
+1505180616485	Delete element
+1505190851152	Rename package 'kr.co.goodcard.mongo.vo'
+1505196094782	Rename type 'UserRepository'
+1505196828744	Delete element
+1505196832135	Delete element
+1505196834463	Delete element
+1505196836198	Delete element
+1505196841344	Delete element
+1505197329971	Rename type 'Card'
+1505197336319	Rename type 'checkCard'
+1505197342680	Copy compilation unit
+1505197347126	Copy compilation unit
+1505197427224	Copy compilation unit
+1505197434475	Copy compilation unit
+1505197472753	Rename type 'CheckCardRepository2'
+1505197477274	Rename type 'HybridCardRepository2'
+1505201955428	Delete element
+1505202375936	Delete element
+1505202380212	Delete element
