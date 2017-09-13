@@ -168,8 +168,14 @@ span.paging-disabled:hover{
 <script src="${context}/resources/custom/js/jquery-3.2.1.js"></script>
 <script src="${context}/resources/custom/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+
 	function goCardHomepage(url) {
 		location.replace(url);
+	}
+
+	function goPage(obj) {
+		location.replace('${context}/card/credit.do?pageNo='
+				+ obj.getAttribute('id'));
 	}
 </script>
 </head>
@@ -229,38 +235,37 @@ span.paging-disabled:hover{
 
 
 			<c:set var="cnt" value="0" scope="page" />
-			<c:forEach items="${creditCardList}" var="list" varStatus="status"
-				begin="1" end="10">
+			<c:forEach items="${creditCardList}" var="list" varStatus="status">
 
 				<div style="height: 30px; clear: both;"></div>
-				<div style="width: 100%">
+				
+				<div style="width: 100%;">
 
 					<c:set var="cnt" value="${ cnt + 1 }" scope="page"></c:set>
 
-					<div style="height: 126.6px; float: left; padding: 5%;">
-						<b
-							style="font-size: 20pt; color: #0085a1; font-family: 'Source Code Pro', monospace;">${cnt}</b>
+					<div style="height: 100%; float: left; padding: 5%;">
+						<b style="font-size: 20pt; color: #0085a1; font-family: 'Nanum Gothic', serif;">${cnt}</b>
 					</div>
 
 					<div class="card-image-area"
-						style="background: url('${context}/resources/cardImage/${list.imagePath}'); background-size: contain;	background-repeat: no-repeat;">
-						<%-- img src="${context}/resources/cardImage/${list.imagePath}" style="width: 300px; height: 126.6px;">
-				 --%>
+						style="height: 126.6px; background: url('${context}/resources/cardImage/${list.imagePath}'); background-size: contain;	background-repeat: no-repeat;">
+						<%-- img src="${context}/resources/cardImage/${list.imagePath}" style="width: 300px; height: 126.6px;"> --%>
 					</div>
 
 					<div
-						style="display: inline-block; height: 126.6px; padding-top: 1%; float: left;">
-						${list.brand} <span
-							style="color: black; padding: 10px 0px; font-size: 15pt; display: inherit;"><b>${list.cardName}</b></span>
-						<span style="color: #0085a1; display: inherit;">"
-							${list.annotation} "</span>
+						style="display: inline-block; height: 100%; padding-top: 1%; float: left;">
+						${list.brand} <div
+							style="color: black; padding: 10px 0px; font-size: 15pt; display: inherit;"><b>${list.cardName}</b></div>
+						<div style="color: #0085a1; display: inherit;">"
+							${list.annotation} "</div>
 					</div>
 
-					<div style="display: inline-block; float: right; margin-right: 8%">
+					<div style="display: inline-block; float: right; height: 100%;">
 						<span class="card-detail-button">상세 보기</span> <span
 							class="card-homepage-button"
 							onclick="goCardHomepage('${list.homepageURL}')">카드 신청</span>
 					</div>
+					
 				</div>
 				<div style="height: 30px; clear: both;"></div>
 				<hr>
@@ -268,12 +273,12 @@ span.paging-disabled:hover{
 			<div style="height: 30px; clear: both;"></div>
 			<div id="paging-area-5" style="float: center; text-align: center;">
 				<i class="fa fa-chevron-left" aria-hidden="true" style="display: none;"></i>
-				<span class="paging-active">1</span>
-				<span class="paging-disabled">2</span>
-				<span class="paging-disabled">3</span>
-				<span class="paging-disabled">4</span>
-				<span class="paging-disabled">5</span>
-				<i class="fa fa-chevron-right" aria-hidden="true"></i>
+				<span id="1" class="paging-disabled" onclick="goPage(this)">1</span>
+				<span id="2" class="paging-disabled" onclick="goPage(this)">2</span>
+				<span id="3" class="paging-disabled" onclick="goPage(this)">3</span>
+				<span id="4" class="paging-disabled" onclick="goPage(this)">4</span>
+				<span id="5" class="paging-disabled" onclick="goPage(this)">5</span>
+				<i id="6" class="fa fa-chevron-right" aria-hidden="true" onclick="goPage(this)"></i>
 			</div>
 		</div>
 		</section>
@@ -281,7 +286,6 @@ span.paging-disabled:hover{
 	
 	<div style="height: 30px; clear: both;"></div>
 	
-	<jsp:include page="/WEB-INF/jsp/include/bottom.jsp" />
 
 	<!-- Bootstrap core JavaScript -->
 	<script
