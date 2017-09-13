@@ -40,21 +40,95 @@
 	rel="stylesheet">
 	
 <style type="text/css">
-.custom-button-design{
-	background: #FFF;
-	border: 1px solid #E5E5E5;
-	padding: 10px;
-	margin: 5px;
+
+body{
+	font-family: 'Nanum Gothic', serif;
 }
 
-.custom-button-design:hover{
-	text-color: #0085a1;
+h4{
+	font-family: 'Nanum Gothic', serif;
 }
 
-.custom-button-design:visited{
-	color:white;
+.custom-button-design {
+    display: inline-block;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 300;
+    width: 30%;
+    height: auto;
+    line-height: 52px;
+    word-break: keep-all;
+    border: 1px solid #0085a1;
+    cursor: pointer;
+    text-align: center;
+    color: #0085a1;
 }
 
+.custom-sort-design{
+	color: gray;
+	list-style: none;
+}
+
+/* link -> visit -> hover -> active */
+
+span.custom-button-design:hover {
+	color: white;
+	background: #0085a1;
+}
+
+.first{
+	margin-right : 3%;
+	float:left;
+}
+
+.last{
+	margin : 0;
+	float:left;
+}
+
+i{
+	margin-right: 5px;
+}
+
+.card-image-area{
+	float:left; 
+	width:250px; 
+	height: 190px; 
+	display: inline-block; 
+	margin-right: 8%; 
+	
+}
+
+span.card-detail-button{
+	border: 1px solid #0085a1;
+    padding: 15px;
+    color: #0085a1;
+    cursor: pointer;
+    margin-bottom: 10%;
+    display: inherit;
+}
+
+
+span.card-detail-button:hover{
+	background: #0085a1;
+	color: white;
+}
+
+span.card-homepage-button{
+	border: 1px solid #008a1;
+	background: #0085a1;
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10%;
+    display: inherit;
+}
+
+span.card-homepage-button:hover{
+	border: 1px solid #0085a1;
+	background: white;
+	color: #0085a1;
+}
 </style>
 
 <!-- Script File -->
@@ -77,8 +151,8 @@
 	<div class="poll-main">
 
 		<section class="section-wrapper"
-			style="padding-top: 100px; padding-bottom: 100px;">
-		<div class="container">
+			style="padding-top: 100px; padding-bottom: 100px; width:100%;">
+		<div class="container" style="width: 100%;">
 			<div id="poll_title" class="row"
 				style="margin: 0px; text-align: center;">
 				<b>신용카드</b>
@@ -86,14 +160,61 @@
 			<div style="color: gray;">
 				회원님께 딱 맞는 신용카드 정보를 제공해드립니다.<br>
 			</div>
+			<div style="height: 50px; clear: both;"></div>
+			<div style="width: 100%; display: block; text-align: center;">
+				<span class="custom-button-design first" onclick=""># 대학생에게 딱 맞는 카드 Pick</span>
+				<span class="custom-button-design first" onclick=""># 20대 직장인 카드 추천 </span>
+				<span class="custom-button-design last" onclick=""># 대중교통 # 버스 # 지하철 </span>
+			</div>
+			<div style="height: 20px; clear: both;"></div>
+			<div style="width: 100%; display: block; text-align: center;">			
+				<span class="custom-button-design first" onclick=""># 카페 # 스타벅스 # 투썸플레이스 </span>
+				<span class="custom-button-design first" onclick=""># 통신요금 # SKT # KT # LGT </span>
+				<span class="custom-button-design last" onclick=""># 영화관 # CGV # 롯데시네마 </span>
+			</div>
+			
+			<div style="height: 50px; clear: both;"></div>
+			
+			<hr>
+			<div style="width: 100%;">
+			<ul style="padding:0">
+				<li class="custom-sort-design first"><i class="fa fa-check" aria-hidden="true"></i>굿카드 랭킹순 </li>
+				<li class="custom-sort-design first"><i class="fa fa-check" aria-hidden="true"></i>등록일 순</li>
+				<li class="custom-sort-design last"><i class="fa fa-check" aria-hidden="true"></i>리뷰 많은순</li>
+			</ul>
+			</div>
+			<div style="clear:both;"></div>
+			<hr>
+			
 			<div style="height: 30px; clear: both;"></div>
-			<div style="height: 30px; clear: both;"></div>
-			<a class="custom-button-design" onclick=""># 대학생에게 딱 맞는 카드 Pick</a>
+			
+			
 			<c:forEach items="${creditCardList}" var="list" varStatus="status"
-				begin="1" end="5">
-				<img src="">
-				<h2>${list.cardName}</h2>
-				<h6>${list.annotation}</h6>
+				begin="1" end="1">
+			<div style="width:100%">
+				
+				<div style="height: 190px; float: left; padding: 5%;">
+					<h4>1</h4>
+				</div>
+				
+				<div class="card-image-area" style="background: url('${context}/resources/cardImage/${list.imagePath}'); background-size: contain;	background-repeat: no-repeat;">
+					<%-- img src="${context}/resources/cardImage/${list.imagePath}" style="width: 300px; height: 190px;">
+				 --%>
+				</div>
+				
+				<div style="display: inline-block; height:190px; padding-top:3%; float: left;">
+					${list.brand}
+					<h4 style="color: black; padding: 10px 0px">${list.cardName}</h4>
+					<span style="color:#0085a1">" ${list.annotation} "</span>
+				</div>
+				
+				<div style="display: inline-block;  padding-top: 3%; float:right; margin-right: 8%">
+					<span class="card-detail-button">상세 보기</span>		
+					<span class="card-homepage-button">카드 신청</span>
+				</div>
+				</div>
+			<div style="clear:both;"></div>
+			<hr>
 			</c:forEach>
 		
 			</div>
