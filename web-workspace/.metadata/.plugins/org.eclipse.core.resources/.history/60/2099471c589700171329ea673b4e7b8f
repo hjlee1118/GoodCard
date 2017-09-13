@@ -1,5 +1,0 @@
-package kr.co.goodcard.config;
-
-public class MongoConfig {
-
-}

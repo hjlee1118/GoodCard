@@ -1,5 +1,0 @@
-package kr.co.goodcard.dao;
-
-public interface UserRepository {
-
-}
