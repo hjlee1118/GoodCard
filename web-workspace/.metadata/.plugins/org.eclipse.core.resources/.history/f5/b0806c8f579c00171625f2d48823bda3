@@ -1,0 +1,12 @@
+package kr.co.goodcard.dao;
+
+import org.springframework.stereotype.Repository;
+
+import kr.co.goodcard.vo.Member;
+
+@Repository
+public interface CardDAO {
+
+	boolean insertMyCard(Member member);
+
+}

@@ -1,0 +1,5 @@
+package kr.co.goodcard.service.impl;
+
+public class CardServiceImpl {
+
+}

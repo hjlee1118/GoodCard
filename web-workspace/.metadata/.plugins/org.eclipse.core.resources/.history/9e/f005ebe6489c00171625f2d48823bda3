@@ -1,0 +1,9 @@
+package kr.co.goodcard.dao;
+
+import kr.co.goodcard.vo.Member;
+
+public interface CardDAO {
+
+	boolean insertMyCard(Member member);
+
+}

@@ -13,17 +13,17 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link
-	href="${context}/resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css?ver=2"
+	href="${context}/resources/bootstrap/vendor/bootstrap/css/bootstrap.min.css?ver=3"
 	rel="stylesheet">
-<link href="${context}/resources/custom/css/main.css?ver=2"
+<link href="${context}/resources/custom/css/main.css?ver=3"
 	rel="stylesheet">
-<link href="${context}/resources/custom/css/topMenu.css?ver=2"
+<link href="${context}/resources/custom/css/topMenu.css?ver=3"
 	rel="stylesheet">
-<link href="${context}/resources/custom/css/cleardiv.css?ver=2"
+<link href="${context}/resources/custom/css/cleardiv.css?ver=3"
 	rel="stylesheet">
 <!-- Custom fonts for this template -->
 <link
-	href="${context}/resources/bootstrap/vendor/font-awesome/css/font-awesome.min.css?ver=2"
+	href="${context}/resources/bootstrap/vendor/font-awesome/css/font-awesome.min.css?ver=3"
 	rel="stylesheet" type="text/css">
 <link
 	href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
@@ -33,181 +33,18 @@
 	rel='stylesheet' type='text/css'>
 
 <!-- Custom styles for this template -->
-<link href="${context}/resources/bootstrap/css/clean-blog.min.css?ver=2"
+<link href="${context}/resources/bootstrap/css/clean-blog.min.css?ver=3"
 	rel="stylesheet">
-<link href="${context}/resources/bootstrap/css/main.css?ver=2"
+<link href="${context}/resources/bootstrap/css/main.css?ver=3"
 	rel="stylesheet">
-<link href="${context}/resources/custom/css/pollForm.css?ver=2"
+<link href="${context}/resources/custom/css/pollForm.css?ver=3"
 	rel="stylesheet">
 
 <!-- Script File -->
 <script src="${context}/resources/custom/js/jquery-3.2.1.js"></script>
-<script src="${context}/resources/custom/js/jquery-3.2.1.min.js"></script>
-<script src="${context}/resources/custom/js/poll.js"></script>
-<script type="text/javascript">
-
-function getAgeFromBirthDay(birth_day) {
-
-	// 전달받은 생년월일로 Date 객체 생성한다. 이하 생년월일 객체라고 칭한다.
-	var birthday = new Date(birth_day);
-
-	// 오늘 날짜 기준으로 나이를 구하기 위해 Date 객체 생성한다. -> 이하 오늘날짜 객체라고 칭한다.
-	var today = new Date();
-
-	// 오늘날짜 객체의 연도에서 생년월일 객체의 연도를 뺀다.
-	var years = today.getFullYear() - birthday.getFullYear();
-
-	// years 의 값이 실질적으로 구해진 나이이다.
-	
-	/*
-	* 계속해서 만 나이 계산을 원하면 아래 처리를 계속해준다.
-	* 연도가 같은 두 객체를 비교하여 생년월일 객체가 오늘 날짜 객체보다 크다면 -1 해준다. 
-	* (생일이 아직 지나지 않았다면 -1 을 한다.)
-	*/
-	// 생년월일 객체의 연도를 오늘 날짜 객체의 연도로 변경
-	birthday.setFullYear(today.getFullYear());
-
-	// 같은 연도가 된 객체를 비교하여 월일이 지났는 지 여부를 판단하여 years 를 뺀다.
-	if (today < birthday) years--;
-	
-	return years;
-
-
-}
-
-function checkForm(){
-	var inputAmount = $('#inputAmount').val();
-	var inputAge = $('#input_age').val();
-	
-	if(isNaN(parseInt(inputAmount))){
-		$('#inputAmount').focus();
-		return false;
-	}
-	
-	if(!$('input:radio[name=cardType]').is(':checked')){
-		$('div_cardType_radio').css("background", "#E5E5E5");
-			return false;
-	}
-	
-	if(isNaN(parseInt(inputAge))){
-		$('#input_age').focus();
-		return false;
-	}
-	
-	
-	
-	return true;	
-}
- 
-
-	$(function() {
-
-		var birth_day = $('#birth_date').val();
-		$('#input_login_age').val(getAgeFromBirthDay(birth_day));
-
-		$('#submitPoll').click(function() {
-			$('div_cardType_radio').css("background-color", "");
-
-			// 필수 항목 입력되었는지 확인
-			if (!checkForm()) {
-				alert('필수 항목을 작성하세요.');
-				return false;
-			}
-
-			// 입력되지 않은 항목 0으로 셋팅			
-			var lists = $('#pollForm').find('input');
-			var result = 0;
-
-			for (var i = 0; i < lists.length - 1; i++) {
-				if (isNaN(parseInt($(lists[i]).val()))) {
-					$(lists[i]).val(0);
-				}
-			}
-
-		});
-	});
-</script>
+<script src="${context}/resources/custom/js/jquery-3.2.1.min.js"></script> 
+<script src="${context}/resources/custom/js/pollForm.js"></script>
 <style type="text/css">
-
-/* 인풋 */
-input[type=radio] {
-	display: none;
-}
-
-.radio-label {
-	display: inline-block;
-	width: auto;
-	height: 30px;
-	padding: 0 20px;
-	border: 1px solid rgba(0, 0, 0, 0.08);
-	margin-right: 20px;
-	line-height: 30px;
-	cursor: pointer;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-ms-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	transition: all 0.3s ease-out;
-}
-
-.radio-label i {
-	margin-right: 10px;
-	opacity: 0;
-	-webkit-transition: opacity 0.3s ease-out;
-	-moz-transition: opacity 0.3s ease-out;
-	-ms-transition: opacity 0.3s ease-out;
-	-o-transition: opacity 0.3s ease-out;
-	transition: opacity 0.3s ease-out;
-}
-
-.radio:checked+.radio-label {
-	background: rgba(4, 120, 193, 0.1);
-}
-
-.radio:checked+.radio-label i {
-	opacity: 1;
-}
-
-.radio+.radio-label span {
-	display: inline-block;
-	font-size: 15px;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-ms-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	transition: all 0.3s ease-out;
-	-webkit-transform: translateX(-13px);
-	-moz-transform: translateX(-13px);
-	-ms-transform: translateX(-13px);
-	-o-transform: translateX(-13px);
-	transform: translateX(-13px);
-}
-
-.radio:checked+.radio-label span {
-	-webkit-transform: translateX(0);
-	-moz-transform: translateX(0);
-	-ms-transform: translateX(0);
-	-o-transform: translateX(0);
-	transform: translateX(0);
-}
-
-.submit_button {
-	border: 1px solid black;
-	color: #FFF;
-	background: black;
-	padding: 10px;
-	font-family: 'Noto Sans KR', serif;
-	text-align: center;
-}
-
-.go_main {
-	border: 1px solid #333;
-	color: black;
-	background: white;
-	padding: 10px;
-	font-family: 'Noto Sans KR', serif;
-	text-align: center;
-}
 
 </style>
 
@@ -230,6 +67,9 @@ input[type=radio] {
 		<section class="section-wrapper"
 			style="padding-top: 100px; padding-bottom: 100px;">
 			<div class="container">
+			
+				<form id="pollForm" method="post"
+					action="${context}/recommend/poll.do">
 				<div id="poll_title" class="row"
 					style="margin: 0px; text-align: center;">
 					<b>설문조사</b>
@@ -247,31 +87,26 @@ input[type=radio] {
 				<div style="height: 30px; clear: both;"></div>
 
 
-				<form id="pollForm" method="post"
-					action="${context}/recommend/poll.do">
 
 
-					<div id="div_cardType_radio" style="width: 100%">
+					<div id="div_cardtype_radio" style="width: 100%">
 					
 						<span class="custom-input-group-addon"> <i
 							class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp;카드 유형&nbsp;<i style="color:red;">*</i>
 						</span>
 						
 						<span class="wrap">
-						
-						<input name="cardType" type="radio"	id="radio0" class="radio" value="credit">
-							<label for="radio0" class="radio-label">
-								<i class="fa fa-check"></i>
-								<span>신용카드</span>
-							</label>
-						
-						<input name="cardType" type="radio" id="radio1" class="radio" value="check">
-							<label for="radio1" class="radio-label">
-								<i class="fa fa-check"></i>
-								<span>체크카드</span>
-							</label>
-							
-						</span>						
+						<input name="cardtype" type="radio" id="radio0" class="radio" value="credit">
+						<label for="radio0" class="radio-label">
+							<i class="fa fa-check"></i>
+							<span>신용카드</span>
+						</label>
+						<input name="cardtype" type="radio" id="radio1" class="radio" value="check">
+						<label for="radio1" class="radio-label">
+							<i class="fa fa-check"></i>
+							<span>체크카드</span>
+						</label>
+						</span>			
 					</div>
 					
 					<div style="height: 10px; clear: both;"></div>

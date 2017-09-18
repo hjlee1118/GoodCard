@@ -1,0 +1,7 @@
+package kr.co.goodcard.service;
+
+public interface CardService {
+
+	boolean toggleMyCard(String id);
+
+}

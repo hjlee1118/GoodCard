@@ -5,7 +5,7 @@
 <mapper namespace="kr.co.goodcard.dao.RecommendDAO">
 	
 	<insert id="insertPoll" parameterType="poll">
-		insert into POLL (member_no, amount, age, card_type) values(#{memberNo}, #{amount}, #{age}, #{cardType})
+		insert into POLL (member_no, amount, age, card_type) values(#{memberNo}, #{amount}, #{age}, #{cardtype})
 	</insert>
 	
 	<insert id="insertTransportation" parameterType="transportation">

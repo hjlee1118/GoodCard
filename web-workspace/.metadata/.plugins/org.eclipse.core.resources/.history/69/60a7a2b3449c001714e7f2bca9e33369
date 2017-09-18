@@ -1,0 +1,31 @@
+package kr.co.goodcard.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import kr.co.goodcard.dao.CardDAO;
+import kr.co.goodcard.service.CardService;
+import kr.co.goodcard.vo.Member;
+
+public class CardServiceImpl implements CardService {
+	
+	@Autowired
+	CardDAO cardDAO;
+
+	@Override
+	public boolean toggleMyCard(String id, Member member) {
+		if(member.getCard1() == null) {
+			member.setCard1(id);
+			return true
+		}
+		if (member.getCard2() == null) {
+			member.setCard2(id);
+			return true;
+		}
+		if (member.getCard3() == null) {
+			member.setCard3(id);
+			return true;
+		}
+		return false;
+	}
+
+}

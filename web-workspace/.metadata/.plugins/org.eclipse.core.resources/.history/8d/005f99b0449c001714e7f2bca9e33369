@@ -1,0 +1,14 @@
+package kr.co.goodcard.service.impl;
+
+import kr.co.goodcard.service.CardService;
+import kr.co.goodcard.vo.Member;
+
+public class CardServiceImpl implements CardService {
+
+	@Override
+	public boolean toggleMyCard(String id, Member member) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

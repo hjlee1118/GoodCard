@@ -1,0 +1,102 @@
+CreditCard [id=59b64fa65be7e40ce0b0bec7, brand=하나카드, cardType=신용카드,
+cardName=2X[투엑스] 유니세프카드, annotation=유니세프 기부시 우대 서비스 제공,
+imagePath=528.png, annualFee=[AnnualFee [brand=국내전용, fee=9000]],
+limitBenefit=[LimitBenefit [prevPerformance=250000, maxBenefit=15000],
+LimitBenefit [prevPerformance=500000, maxBenefit=30000], LimitBenefit
+[prevPerformance=1000000, maxBenefit=60000]], specialServices=null,
+benefits=[Benefits [category=온라인쇼핑몰, brandList=[BrandList [brand=G마켓,
+benefit=10% 할인, prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지
+혜택 제공 (G마켓, 옥션, 11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑 가맹점의 혜택과
+연동)], BrandList [brand=옥션, benefit=10% 할인, prevPerformance=250000,
+constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (G마켓, 옥션, 11번가, 인터파크, 샵N, CJ오쇼핑,
+GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑 가맹점의 혜택과 연동)], BrandList [brand=11번가, benefit=10%
+할인, prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (G마켓,
+옥션, 11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑 가맹점의 혜택과 연동)], BrandList
+[brand=인터파크, benefit=10% 할인, prevPerformance=250000, constraint=이번 달 동안
+최대 10,000원까지 혜택 제공 (G마켓, 옥션, 11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑
+가맹점의 혜택과 연동)], BrandList [brand=샵N, benefit=10% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (G마켓, 옥션,
+11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑 가맹점의 혜택과 연동)]]], Benefits
+[category=놀이공원, brandList=[BrandList [brand=에버랜드, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1개 까지 혜택 적용], BrandList [brand=서울랜드, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1개 까지 혜택 적용], BrandList [brand=롯데월드, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1개 까지 혜택 적용], BrandList [brand=통도환타지아, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1개 까지 혜택 적용], BrandList [brand=광주패밀리랜드, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1개 까지 혜택 적용], BrandList [brand=이월드, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 올해 최대 6회 혜택 제공
+결제시 1개 까지 혜택 적용]]], Benefits [category=온라인영화예매, brandList=[BrandList
+[brand=CGV 온라인, benefit=2,000 원 할인, prevPerformance=250000,
+constraint=해당 가맹점 4,000원 이상 결제 시이번 달 동안 최대 1회 혜택 제공 올해 최대 12회 혜택 제공 ]]],
+Benefits [category=홈쇼핑, brandList=[BrandList [brand=CJ오쇼핑, benefit=10%
+할인, prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (G마켓,
+옥션, 11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑 가맹점의 혜택과 연동)], BrandList
+[brand=GS홈쇼핑, benefit=10% 할인, prevPerformance=250000, constraint=이번 달 동안
+최대 10,000원까지 혜택 제공 (G마켓, 옥션, 11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑
+가맹점의 혜택과 연동)], BrandList [brand=농수산홈쇼핑, benefit=10% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (G마켓, 옥션,
+11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑 가맹점의 혜택과 연동)], BrandList
+[brand=현대홈쇼핑, benefit=10% 할인, prevPerformance=250000, constraint=이번 달 동안
+최대 10,000원까지 혜택 제공 (G마켓, 옥션, 11번가, 인터파크, 샵N, CJ오쇼핑, GS홈쇼핑, 농수산홈쇼핑, 현대홈쇼핑
+가맹점의 혜택과 연동)]]], Benefits [category=패밀리레스토랑, brandList=[BrandList
+[brand=VIPS, benefit=10% 할인, prevPerformance=250000, constraint=이번 달 동안
+최대 10,000원까지 혜택 제공 (VIPS, 아웃백스테이크하우스, 씨즐러, T.G.I.F 가맹점의 혜택과 연동)],
+BrandList [brand=아웃백스테이크하우스, benefit=10% 할인, prevPerformance=250000,
+constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (VIPS, 아웃백스테이크하우스, 씨즐러, T.G.I.F
+가맹점의 혜택과 연동)], BrandList [brand=T.G.I.F, benefit=10% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (VIPS,
+아웃백스테이크하우스, 씨즐러, T.G.I.F 가맹점의 혜택과 연동)]]], Benefits [category=워터파크,
+brandList=[BrandList [brand=캐리비안 베이, benefit=50% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1개 까지 혜택 적용], BrandList [brand=설악 워터피아, benefit=40% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (에버랜드, 서울랜드,
+롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과 연동)올해 최대 6회 혜택 제공
+(에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락 가맹점의 혜택과
+연동)결제시 1�9월 18, 2017 2:17:44 오후
+com.mongodb.diagnostics.logging.JULLogger log � 까지 혜택 적용], BrandList
+[brand=워터락, benefit=30% 할인, prevPerformance=250000, constraint=이번 달 동안
+최대 1회 혜택 제공 (에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이, 설악 워터피아, 워터락
+가맹점의 혜택과 연동)올해 최대 6회 혜택 제공 (에버랜드, 서울랜드, 롯데월드, 통도환타지아, 광주패밀리랜드, 캐리비안 베이,
+설악 워터피아, 워터락 가맹점의 혜택과 연동)결제시 2개 까지 혜택 적용]]], Benefits [category=뷔페,
+brandList=[BrandList [brand=씨즐러, benefit=10% 할인, prevPerformance=250000,
+constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (VIPS, 아웃백스테이크하우스, 씨즐러, T.G.I.F
+가맹점의 혜택과 연동)]]], Benefits [category=대형마트, brandList=[BrandList
+[brand=이마트, benefit=5% 할인, prevPerformance=250000, constraint=이번 달 동안 최대
+5,000원까지 혜택 제공 (이마트, 홈플러스, 롯데마트 가맹점의 혜택과 연동)], BrandList [brand=홈플러스,
+benefit=5% 할인, prevPerformance=250000, constraint=이번 달 동안 최대 5,000원까지 혜택
+제공 (이마트, 홈플러스, 롯데마트 가맹점의 혜택과 연동)], BrandList [brand=롯데마트, benefit=5% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 5,000원까지 혜택 제공 (이마트, 홈플러스,
+롯데마트 가맹점의 혜택과 연동)]]], Benefits [category=휴대폰요금, brandList=[BrandList
+[brand=SK텔레콤, benefit=10% 할인, prevPerformance=250000, constraint=이번 달 동안
+최대 1회 혜택 제공 (SK텔레콤, KT, LG유플러스 가맹점의 혜택과 연동)이번 달 동안 최대 9,000원까지 혜택 제공
+(SK텔레콤, KT, LG유플러스 가맹점의 혜택과 연동)], BrandList [brand=KT, benefit=10% 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 (SK텔레콤, KT,
+LG유플러스 가맹점의 혜택과 연동)이번 달 동안 최대 9,000원까지 혜택 제공 (SK텔레콤, KT, LG유플러스 가맹점의 혜택과
+연동)], BrandList [brand=LG유플러스, benefit=10% 할인, prevPerformance=250000,
+constraint=이번 달 동안 최대 1회 혜택 제공 (SK텔레콤, KT, LG유플러스 가맹점의 혜택과 연동)이번 달 동안 최대
+9,000원까지 혜택 제공 (SK텔레콤, KT, LG유플러스 가맹점의 혜택과 연동)]]], Benefits
+[category=동물원, brandList=[BrandList [brand=전주시동물원, benefit=100% 즉시 할인,
+prevPerformance=250000, constraint=이번 달 동안 최대 1회 혜택 제공 결제시 1개 까지 혜택
+적용]]], Benefits [category=휘발유, brandList=[BrandList [brand=GS칼텍스 휘발유,
+benefit=1리터당 60 원 할인, prevPerformance=250000, constraint=이번 달 동안 최대
+10,000원까지 혜택 제공 (GS칼텍스 휘발유, GS칼텍스 경유 가맹점의 혜택과 연동)]]], Benefits
+[category=경유, brandList=[BrandList [brand=GS칼텍스 경유, benefit=1리터당 60 원
+할인, prevPerformance=250000, constraint=이번 달 동안 최대 10,000원까지 혜택 제공 (GS칼텍스
+휘발유, GS칼텍스 경유 가맹점의 혜택과 연동)]]]], viewCount=0,
+homepageURL=https://www.hanacard.co.kr/]

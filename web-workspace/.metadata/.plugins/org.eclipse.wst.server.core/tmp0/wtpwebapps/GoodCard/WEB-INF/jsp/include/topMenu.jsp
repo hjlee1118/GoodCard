@@ -30,9 +30,9 @@
 					href="${ pageContext.request.contextPath }/recommend/poll.do">내게 맞는 카드 찾기</a>
 				
 				</li>
-				<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/card/credit.do">신용카드</a>
+				<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/credit.do?pageNo=1">신용카드</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/card/check.do">체크카드</a>
+				<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/check.do">체크카드</a>
 				</li>
 				<c:choose>
 					<c:when test="${not empty loginUser}">

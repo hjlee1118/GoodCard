@@ -1,0 +1,289 @@
+package kr.co.goodcard.controller;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.types.ObjectId;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
+
+import kr.co.goodcard.vo.CreditCard;
+import kr.co.goodcard.vo.mongo.*;
+
+@Controller
+public class CardController {
+
+	/**
+	 * 신용카드의 요청을 처리
+	 * */
+	
+	@RequestMapping("credit.do")
+	public String creditCardPageTest(@RequestParam("pageNo") int no, Model model) {
+		try {
+			BasicDBObject searchQuery = new BasicDBObject();
+			searchQuery.put("brand", "하나카드");
+
+			int totalCnt = creditCardCnt(searchQuery);
+			int totalPageCnt = 0;
+			
+
+			if(totalCnt % 10 == 0){
+				totalPageCnt = totalCnt/10;
+			}else{
+				totalPageCnt = totalCnt/10 + 1;
+			}
+			
+			List<CreditCard> creditCardList = cardList(searchQuery, no);
+			model.addAttribute("creditCardList", creditCardList);
+			model.addAttribute("totalCnt", totalCnt);
+			model.addAttribute("totalPageCnt", totalPageCnt);
+			return "credit/list";
+		} catch (Exception e) {
+
+		}
+		return "redirect:/";
+	}
+	
+	@RequestMapping("credit/detail.do")
+	public String creditCardDetail(@RequestParam("id") String id, Model model){
+		CreditCard creditCard = new CreditCard();
+		try{
+			BasicDBObject searchQuery = new BasicDBObject();
+			searchQuery.put("_id", new ObjectId(id));
+			creditCard = cardDetail(searchQuery);	
+			model.addAttribute("card", creditCard);			
+						
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "credit/detail";
+		
+	}
+	
+	public static int creditCardCnt(BasicDBObject searchQuery){
+		MongoClient mongo = new MongoClient("52.79.221.214", 27017);
+		DB db = mongo.getDB("hana");
+		
+		DBCollection collection = db.getCollection("creditCard");
+		
+		int count = collection.find(searchQuery).count();
+		
+		return count;
+	}
+	
+	public static CreditCard cardDetail(BasicDBObject searchQuery){
+		
+		MongoClient mongo = new MongoClient("52.79.221.214", 27017);
+		DB db = mongo.getDB("hana");
+	
+		//get a single collection
+		DBCollection collection = db.getCollection("creditCard");
+		BasicDBObject cardDBObject = (BasicDBObject) collection.findOne(searchQuery);		
+		CreditCard creditCard = new CreditCard();
+		
+		creditCard.setId(cardDBObject.getString("_id"));
+		creditCard.setBrand(cardDBObject.getString("brand"));
+		creditCard.setCardType(cardDBObject.getString("cardType"));
+		creditCard.setCardName(cardDBObject.getString("cardName"));
+		creditCard.setAnnotation(cardDBObject.getString("annotation"));
+		File imagePath = new File(cardDBObject.getString("imagePath"));
+		creditCard.setImagePath(imagePath.getName());
+		creditCard.setViewCount(cardDBObject.getInt("viewCount"));
+		
+		//annualFee
+		
+		List<AnnualFee> annualFees = new ArrayList<AnnualFee>();			
+		BasicDBList annualFeeList = (BasicDBList)cardDBObject.get("annualFee");
+		
+		for(int i = 0; i<annualFeeList.size(); i++){
+			BasicDBObject annualFeeObj = (BasicDBObject) annualFeeList.get(i);
+			String brand = annualFeeObj.getString("brand");
+			int fee = annualFeeObj.getInt("fee");
+			
+			AnnualFee annualFee = new AnnualFee();
+			annualFee.setBrand(brand);
+			annualFee.setFee(fee);
+			
+			annualFees.add(annualFee);
+		}			
+		
+		creditCard.setAnnualFee(annualFees);
+		
+		//limitBenefit
+		
+		List<LimitBenefit> limitBenefits = new ArrayList<LimitBenefit>();
+		BasicDBList limitBenefitList = (BasicDBList)cardDBObject.get("limitBenefit");
+		
+		for(int i = 0; i<limitBenefitList.size(); i++){
+			
+			BasicDBObject limitBenefitObj = (BasicDBObject) limitBenefitList.get(i);
+			int prevPerformance = limitBenefitObj.getInt("prevPerformance");
+			int maxBenefit = limitBenefitObj.getInt("maxBenefit");
+			
+			LimitBenefit limitBenefit = new LimitBenefit();
+			limitBenefit.setPrevPerformance(prevPerformance);
+			limitBenefit.setMaxBenefit(maxBenefit);
+			
+			limitBenefits.add(limitBenefit);
+			
+		}
+		
+		creditCard.setLimitBenefit(limitBenefits);
+		
+		//SpecialService
+		List<SpecialService> specialServices = new ArrayList<SpecialService>();
+		BasicDBList specialServiceList = (BasicDBList)cardDBObject.get("specialService");
+		
+		for(int i = 0; i<specialServiceList.size(); i++){
+			
+			BasicDBObject specialServiceObj = (BasicDBObject) limitBenefitList.get(i);
+			String category = specialServiceObj.getString("category");
+			
+			List<Detail> details = new ArrayList<Detail>();
+			BasicDBList detailList = (BasicDBList)specialServiceObj.get("detail");
+			
+			for(int j = 0; j<detailList.size(); j++){
+				BasicDBObject detailObj = (BasicDBObject)detailList.get(j);
+				String detailCategory = detailObj.getString("detailCategory");
+				
+				List<ServiceList> serviceLists = new ArrayList<ServiceList>();
+				BasicDBList serviceListList = (BasicDBList)detailObj.get("serviceList");
+				
+				for(int k = 0; k<serviceListList.size(); k++){
+					BasicDBObject serviceListObj = (BasicDBObject) serviceListList.get(k);
+					String service = serviceListObj.getString("service");
+					String content = serviceListObj.getString("content");
+					
+					ServiceList serviceList = new ServiceList();
+					serviceList.setService(service);
+					serviceList.setContent(content);
+					
+					serviceLists.add(serviceList);
+				}
+				
+				Detail detail = new Detail();
+				detail.setDetailCategory(detailCategory);
+				detail.setServiceList(serviceLists);
+				
+				details.add(detail);
+				
+			}
+			
+			SpecialService specialService = new SpecialService();
+			specialService.setCategory(category);
+			specialService.setDetail(details);
+			
+			specialServices.add(specialService);
+			
+		}			
+		
+		creditCard.setSpecialServices(specialServices);
+		
+		//Benefit
+		
+		List<Benefits> benefitss = new ArrayList<Benefits>();
+		BasicDBList benefitsList = (BasicDBList)cardDBObject.get("benefits");
+		
+		for(int i = 0; i<benefitsList.size(); i++){
+			
+			BasicDBObject benefitsObj = (BasicDBObject) benefitsList.get(i);
+			String benefitsCategory = benefitsObj.getString("category");
+			
+			List<BrandList> brandLists = new ArrayList<BrandList>();
+			BasicDBList brandListList = (BasicDBList)benefitsObj.get("brandList");
+			
+			for(int j = 0; j<brandListList.size(); j++){
+				BasicDBObject brandListObj = (BasicDBObject) brandListList.get(j);
+				String brand = brandListObj.getString("brand");
+				String benefitBenefit = brandListObj.getString("benefit");
+				int benefitPrevperformance = brandListObj.getInt("prevPerformance");
+				String constraint = brandListObj.getString("constraint");
+				
+				BrandList brandList = new BrandList();
+				brandList.setBrand(brand);
+				brandList.setBenefit(benefitBenefit);
+				brandList.setPrevPerformance(benefitPrevperformance);
+				brandList.setConstraint(constraint);
+				
+				brandLists.add(brandList);
+			}
+			
+			Benefits benefits = new Benefits();
+			benefits.setCategory(benefitsCategory);
+			benefits.setBrandList(brandLists);
+			
+			benefitss.add(benefits);
+		}
+		
+		
+		creditCard.setBenefits(benefitss);
+		
+		
+		creditCard.setHomepageURL("https://www.hanacard.co.kr/");
+		
+		mongo.close();
+		
+		return creditCard;
+		
+	}
+
+	public static List<CreditCard> cardList(BasicDBObject searchQuery, int pageNo){
+		try{
+		MongoClient mongo = new MongoClient("52.79.221.214", 27017);
+		DB db = mongo.getDB("hana");
+	
+		//get a single collection
+		DBCollection collection = db.getCollection("creditCard");		
+		int skipPage = (pageNo-1)*10;
+		DBCursor cursor = collection.find(searchQuery).skip(skipPage).limit(10);
+		
+		List<CreditCard> list = new ArrayList<>();
+		
+		while (cursor.hasNext()) {
+
+			BasicDBObject cardDBObject = (BasicDBObject) cursor.next();
+			CreditCard creditCard = new CreditCard();
+
+			creditCard.setId(cardDBObject.getString("_id"));
+			creditCard.setBrand(cardDBObject.getString("brand"));
+			creditCard.setCardType(cardDBObject.getString("cardType"));
+			creditCard.setCardName(cardDBObject.getString("cardName"));
+			creditCard.setAnnotation(cardDBObject.getString("annotation"));
+			File imagePath = new File(cardDBObject.getString("imagePath"));
+			creditCard.setImagePath(imagePath.getName());
+			
+			creditCard.setAnnualFee((List<AnnualFee>) cardDBObject.get("annualFee"));
+			creditCard.setLimitBenefit((List<LimitBenefit>) cardDBObject.get("limitBenefit"));
+			creditCard.setSpecialServices((List<SpecialService>) cardDBObject.get("specialService"));
+			creditCard.setBenefits((List<Benefits>) cardDBObject.get("benefits"));
+			
+			creditCard.setViewCount(cardDBObject.getInt("viewCount"));
+			creditCard.setHomepageURL("https://www.hanacard.co.kr/");
+			
+			list.add(creditCard);
+		}
+		
+		System.out.println(list.get(0));
+		mongo.close();
+		
+		return list;		
+		
+		}catch (Exception e) {
+			
+		}
+		return null;
+		
+	}
+	
+}

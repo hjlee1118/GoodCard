@@ -1,0 +1,5 @@
+package kr.co.goodcard.dao;
+
+public class CardDAO {
+
+}
